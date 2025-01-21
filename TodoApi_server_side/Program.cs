@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using TodoApi;
   // "ToDoDB": "server=localhost;user=root;password=aA1795aA;database=ToDoDB"
+//   "ToDoDB": "server=bw7v1imp71cys7uyq3rm-mysql.services.clever-cloud.com;user=uetdqrwjwrgz243d;password=5anNmj9CQUi8RpmjUhMu;database=ToDoDB;port=3306"
 
 var builder = WebApplication.CreateBuilder(args);
 
