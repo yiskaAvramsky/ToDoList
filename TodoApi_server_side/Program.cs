@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using TodoApi;
+  // "ToDoDB": "server=localhost;user=root;password=aA1795aA;database=ToDoDB"
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,8 +24,9 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 builder.Services.AddDbContext<ToDoDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"), new MySqlServerVersion(new Version(8, 0, 0))));
-
+    options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB") ?? 
+                     Environment.GetEnvironmentVariable("ToDoDB"),
+                     new MySqlServerVersion(new Version(8, 0, 0))));
 
 // הוספת שירותי CORS
 builder.Services.AddCors(options =>
@@ -43,15 +45,15 @@ var app = builder.Build();
 app.UseCors("AllowSpecificOrigins");
 
 // הפעלת Swagger רק בסביבת פיתוח
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "ToDo API v1");
         options.RoutePrefix = ""; // מציג את Swagger בדף הראשי
     });
-}
+// }
 
 app.MapGet("/", () => "Hello World!");
 
