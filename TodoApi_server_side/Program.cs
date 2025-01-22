@@ -34,11 +34,12 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigins", policy =>
     {
-        policy.WithOrigins("http://localhost:3000", "http://example.com") // כתובות מורשות
+        policy.WithOrigins("https://todolist-rfhi.onrender.com") // הוספת כתובת ה-Frontend ברנדר
               .AllowAnyHeader() // הרשאת כותרות
               .AllowAnyMethod(); // הרשאת מתודות (GET, POST, PUT, DELETE)
     });
 });
+
 
 var app = builder.Build();
 
