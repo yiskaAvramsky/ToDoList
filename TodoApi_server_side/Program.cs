@@ -40,18 +40,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowSpecificOrigins", policy =>
-    {
-        policy.WithOrigins("https://todolist-rfhi.onrender.com") // הוספת כתובת ה-Frontend ברנדר
-              .AllowAnyHeader()
-              .AllowAnyMethod();
-    });
-});
-
-
-
 var app = builder.Build();
 
 // שימוש במדיניות ה-CORS
