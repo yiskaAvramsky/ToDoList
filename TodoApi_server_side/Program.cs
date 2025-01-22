@@ -34,11 +34,22 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigins", policy =>
     {
-        policy.WithOrigins("https://todolist-rfhi.onrender.com") // הוספת כתובת ה-Frontend ברנדר
+        policy.WithOrigins("https://todolist-rfhi.onrender.com","http://localhost:3000/") // הוספת כתובת ה-Frontend ברנדר
               .AllowAnyHeader() // הרשאת כותרות
               .AllowAnyMethod(); // הרשאת מתודות (GET, POST, PUT, DELETE)
     });
 });
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins", policy =>
+    {
+        policy.WithOrigins("https://todolist-rfhi.onrender.com") // הוספת כתובת ה-Frontend ברנדר
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 
 
 var app = builder.Build();
