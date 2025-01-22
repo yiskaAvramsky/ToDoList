@@ -24,18 +24,11 @@ export default {
 
   setCompleted: async (id, isComplete) => {
     try {
-      console.log("111");
       const current = await apiClient.get(`/tasks/${id}`);
-      console.log("222");
       console.log("current", current.data);
       current.data.isComplete = !(current.data.isComplete);
       console.log("current", current.data);
-
-      console.log("333");
-
       const result = await apiClient.put(`/tasks/${id}`, current.data);
-      console.log("444");
-
       return result.data;
     }
     catch (error) {
