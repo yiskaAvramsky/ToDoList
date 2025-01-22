@@ -3,7 +3,9 @@ import axios from 'axios';
 // יצירת אינסטנס של Axios עם הגדרות ברירת מחדל
 const apiClient = axios.create({
   // baseURL: "http://localhost:5284", // כתובת ה-API הבסיסית
-  baseURL: "https://todolist-server-8pzx.onrender.com", // כתובת ה-API הבסיסית
+  // baseURL: "https://todolist-server-8pzx.onrender.com", // כתובת ה-API הבסיסית
+  baseURL: process.env.REACT_APP_API_URL, // כתובת ה-API הבסיסית
+
   timeout: 10000, // זמן מקסימלי לבקשה (לא חובה)
   headers: {
     'Content-Type': 'application/json', // סוג תוכן ברירת מחדל
