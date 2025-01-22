@@ -34,7 +34,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigins", policy =>
     {
-        policy.WithOrigins("https://todolist-rfhi.onrender.com","http://localhost:3000") // הוספת כתובת ה-Frontend ברנדר
+        policy.WithOrigins("https://todolist-rfhi.onrender.com","http://localhost:3000","https://todolist-server-8pzx.onrender.com") // הוספת כתובת ה-Frontend ברנדר
               .AllowAnyHeader() // הרשאת כותרות
               .AllowAnyMethod(); // הרשאת מתודות (GET, POST, PUT, DELETE)
     });
